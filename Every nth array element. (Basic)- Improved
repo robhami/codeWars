@@ -1,0 +1,15 @@
+function every(arr, interval, start){
+console.log(arr);
+console.log("int: ",interval);
+console.log("start: ", start);
+ let ansArray=[];
+ // loop through array using start and interval or defaulting to 0 and 1 respectively if null
+  for (let i=start || 0 ; i<arr.length; i+=interval || 1){
+    ansArray.push(arr[i]);
+  
+  }
+  return(ansArray);
+  console.log(ansArray);
+ 
+ 
+}
