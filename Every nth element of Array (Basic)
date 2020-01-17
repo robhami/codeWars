@@ -1,0 +1,31 @@
+function every(arr, interval, start){
+console.log(arr);
+console.log("int: ",interval);
+console.log("start: ", start);
+ let ansArray=[];
+ //set i and step to 0, so not undefined if not present
+ let i=0;
+ let step=0;
+ //if start is greater than 0 set i to start value, so loop starts there
+ if(start>0){
+   i=start;
+ }
+ //if interval is greater than 0 set interval to step value, so loop can be stepped
+ if (interval>0){
+   step=interval;
+ }
+//if no interval, return array (no tests have 0 interval and a step) 
+   if(isNaN(interval)){
+    console.log(arr);
+    return(arr);
+     } else{
+  //loop through array applying revised i and step
+  for (i; i<arr.length; i=i+step){
+    ansArray.push(arr[i]);
+  
+  }
+  return(ansArray);
+  console.log(ansArray);
+ }
+ 
+}
