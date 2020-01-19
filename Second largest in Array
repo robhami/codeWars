@@ -1,0 +1,29 @@
+function secondLargest(array){
+
+ console.log(array);
+ 
+ if(Array.isArray(array)){
+//remove duplicates
+     let uniqueArray=array.filter(function(item, index) {
+       return array.indexOf(item) >= index;
+     });
+   console.log(uniqueArray);
+//convert strings to integers 
+      var result = uniqueArray.map(function (x) { 
+        return parseInt(x); 
+      });
+      console.log(result);
+//filter out only Integers      
+      let filtered=result.filter (function (el) {
+        return Number.isInteger(el);
+        });
+        
+ //sort and reverse     
+      filtered.sort(function(a,b){return a-b});
+      filtered.reverse();
+      console.log(filtered);
+      
+  return(filtered[1]);
+       
+ }
+}
