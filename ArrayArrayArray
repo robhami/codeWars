@@ -1,0 +1,24 @@
+function explode(x){
+console.log(x);
+let score = 'Void!';
+let newArray=[];
+
+  if (Number.isInteger(x[0]) && Number.isInteger(x[1])){
+    score=((x[0])+(x[1]));
+    }else if (Number.isInteger(x[0]) && isNaN(x[1])){
+    score=x[0];
+    }else if (Number.isInteger(x[1]) && isNaN(x[0])){
+     score=x[1];
+     }
+  console.log(score);
+  
+    for (i=0; i<score;i++){
+      newArray.push(x);
+    }
+    if(Number.isInteger(score)){
+        console.log(newArray);
+        return(newArray);
+       }else{
+         console.log("Void!");
+          return("Void!");
+       }
