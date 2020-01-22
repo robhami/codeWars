@@ -1,0 +1,17 @@
+function reverseFactorial(num) {
+console.log(num);
+let result=1;
+  for(let i=1;i<20;i++){
+  result=(i*result);
+  //console.log(i,result)
+    if(result===num){
+      answer=i.toString();
+      //console.log(answer+"!");
+      return(answer+"!");
+    } 
+   
+  }
+     if(typeof(answer==="undefined")){
+        return("None");
+        }
+}
