@@ -1,15 +1,14 @@
-function arrayDiff(a, b) {
-     
-  for(i=0;i<b.length;i++){
-  
-    for(j=0;j<a.length;j++) {
-    
-      if(a[j]===b[i]) {
-        a.splice(j,1)
-      }
-    
-    }
-  } 
-  return a; 
-}
+function arrayDiff(a, b) {  
+// Loop thru all the b's
+    for (i=0;i<b.length;i++) {     
+// For each b loop through a's in reverse order and remove if match occurs
+//had to -1 from length to loop through and stop point because first index is 0
+      for(j=a.length-1;j>-1;j--) {
+        if(a[j]===b[i]) {
+          a.splice(j,1);
+          }      
+      }    
+    } 
+    return(a);
+   }
 
