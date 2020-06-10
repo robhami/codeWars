@@ -1,4 +1,4 @@
-```javascript
+```
 
 function arrayDiff(a, b) {  
 // Loop thru all the b's
