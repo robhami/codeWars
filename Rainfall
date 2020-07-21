@@ -1,0 +1,84 @@
+function mean(town, strng) {
+  let newArray=strng.split("\n");
+  let subNewArray=[];
+  let townArray=[];
+  let rainValArray=[];
+  let answer = "";
+  let townCheck=false;
+    
+  for (i=0;i<newArray.length;i++) { 
+//split off town name as subNewArray
+     subNewArray=(newArray[i].split(":"))
+//if subNewArray = town function parameter send to rainArrayFunc & set townCheck as true
+     if(subNewArray[0]===town){
+         townCheck=true;
+         rainArrayFunc();
+     } 
+  }  
+//if townCheck false return -1   
+  if (townCheck==false) {
+    return (-1);
+  }
+    
+   function rainArrayFunc (town) {
+// split raindata into array
+       townArray=(subNewArray[1].split(","));
+// slice numerical rain values from townArray into rainValArray      
+       for (j=0;j<townArray.length;j++) {
+        let rainVal=parseFloat(townArray[j].slice(4,9));
+        rainValArray.push(rainVal);
+       }
+    }
+// use reduce to sum rainValArray
+  answer= (rainValArray.reduce(sumFunc));
+
+  function sumFunc (total, num) {
+    return total+num
+  }
+  console.log (answer);
+  return (answer/12);
+}
+
+
+function variance(town, strng) {
+  let newArray=strng.split("\n");
+  let subNewArray=[];
+  let townArray=[];
+  let rainValArray=[];
+  let answer = "";
+  let townCheck=false;
+  
+  for (i=0;i<newArray.length;i++) { 
+
+     subNewArray=(newArray[i].split(":"))
+     if(subNewArray[0]===town){
+         townCheck=true;
+         console.log(town)
+         rainArrayFunc();
+     }
+  }   
+   if (townCheck===false) {
+      return (-1);   
+    }    
+   function rainArrayFunc () {
+       townArray=(subNewArray[1].split(","));      
+       for (j=0;j<townArray.length;j++) {
+        let rainVal=parseFloat(townArray[j].slice(4,9));
+        rainValArray.push(rainVal);
+       }
+    }          
+  let mean= (rainValArray.reduce(sumFunc))/12;
+  
+  function sumFunc (total, num) {  
+    return total+num
+  }
+  //reduce but set initial value to zero- as total starts at first value and first num is second num in array
+  let variance=rainValArray.reduce((varFunc),0);
+  function varFunc (total, num) {
+    console.log("Total: ",total);
+    console.log(Math.pow((num-mean),2));
+    return total+(Math.pow((num-mean),2))    
+  }
+  console.log(variance/12);
+  return (variance/12);
+}  
