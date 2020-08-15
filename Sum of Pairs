@@ -5,23 +5,34 @@ var sum_pairs=function(ints, s){
     let maxSpace = len;
     let lhs=len;
     let answerArray=undefined;
-     if(len>1000){
-       return answerArray;
-     }
-  for (i=0; i<len+1; i++){
+    let uniqueInts=[];
+    let uints=false;
+  
+  for (i=0; i<len; i++){
     let pos=i;
-        len-(len-i);
     console.log("pos: ", pos);
     let firstNum=ints[pos];
     console.log("first: ", firstNum);
-   
+     
+    function inclFunc () {
+         uints=uniqueInts.includes(firstNum);
+         console.log("unints: ", uints);
+    }
+    
+   inclFunc();
+      
+   if(!uints) {
+      uniqueInts.push(firstNum);
+      console.log("uniqueInts: ", uniqueInts);    
+    
+    
         for (j=0; j<len; j++) {
           let firstNum=ints[pos];
           let secPos=j+1+pos;
-          console.log("secPos: ", secPos);    
-          console.log("secPos-pos: ",secPos-pos);     
+//           console.log("secPos: ", secPos);    
+//           console.log("secPos-pos: ",secPos-pos);     
           let secondNum=(ints[secPos]);
-      //        console.log("second: ", secondNum); 
+             console.log("second: ", secondNum); 
           let sumVar = firstNum + secondNum;
       //       console.log("sum: ", sumVar);
       //       console.log("j-i: ", j-i)
@@ -35,7 +46,7 @@ var sum_pairs=function(ints, s){
             } 
           
           }
-      
+      }
   }
   return (answerArray); 
 }
