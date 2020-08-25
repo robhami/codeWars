@@ -1,0 +1,79 @@
+function simple_assembler(program) {
+  console.log (program);
+let a= "";
+let i=0;
+let b=0; 
+let answer={};
+  for(i=0;i<program.length;i++){   
+    let inst=program[i].split(" ");
+    console.log(inst);
+    console.log(i);
+    switch (inst[1]) {
+      case 'a':
+        switch (inst[0]) {
+          case 'mov':
+            a=parseInt(inst[2]);
+            console.log("mov",a);
+            break;
+          case 'inc':
+            a=a+1;   
+            console.log("inc",a);
+            break;
+          case 'dec':
+            a=a-1;
+            console.log("dec",a);
+            break;  
+          case 'jnz':
+            if(a!=0){
+            let step=(parseInt(inst[2]));
+            i=i+step-1;
+            } else {
+             break; 
+            }
+            
+        }
+        answer.a=a;
+        break;
+ // need to do it for any possible variable can we pass that into switch using inst[1]?        
+      case 'b':
+        switch (inst[0]) {
+          case 'mov':
+            if (isNaN(inst[2])){
+              b=a;
+             console.log("b: ", b);
+            } else {
+            b=parseInt(inst[2]);
+            }
+            console.log("mov b",b);
+            break;
+          case 'inc':
+            b=b+1;   
+            console.log("inc b",b);
+            break;
+          case 'dec':
+            b=b-1;
+            console.log("dec b",b);
+            break;  
+          case 'jnz':
+            if(b!=0){
+            let step=(parseInt(inst[2]));
+            i=i+step-1;
+            } else {
+             break; 
+            }
+          
+        } 
+        answer.b=b; 
+        break; 
+    }
+    
+  }
+
+  
+ 
+  console.log("a: ",a) 
+  console.log("b: ",b) 
+  console.log(answer);
+	/* return a dictionary with the registers */
+	return answer;
+}
